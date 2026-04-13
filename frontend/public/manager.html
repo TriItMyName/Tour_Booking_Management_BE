@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../src/assets/css/manager.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"
+        type="text/css" />
+    <link rel="stylesheet" href="../src/assets/css/manager-responsive.css">
+
+    <title>Quản trị - Quản lý Tour</title>
+</head>
+
+<body>
+    <header class="header">
+        <button class="menu-icon-btn" aria-label="Mở/đóng menu">
+            <div class="menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </button>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar open">
+            <div class="top-sidebar">
+                <a href="#" class="channel-logo"><img src="../src/assets/image/icon_logo.png" alt="Tour Logo"></a>
+            </div>
+
+            <div class="middle-sidebar">
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item tab-content active">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-users"></i></div>
+                            <div class="hidden-sidebar">Nhân viên</div>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item tab-content">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                            <div class="hidden-sidebar">Tours</div>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item tab-content">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-images"></i></div>
+                            <div class="hidden-sidebar">Hình ảnh tour</div>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item tab-content">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-sliders"></i></div>
+                            <div class="hidden-sidebar">Xét trạng thái</div>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item tab-content">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-eye"></i></div>
+                            <div class="hidden-sidebar">Xem trạng thái</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-sidebar">
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item user-logout">
+                        <a href="login.html" class="sidebar-link" id="logout-acc">
+                            <div class="sidebar-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+                            <div class="hidden-sidebar">Đăng xuất</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="content">
+            <!-- Section 0: Nhân viên -->
+            <div class="section active">
+                <h1 class="page-title">Quản trị: Nhân viên</h1>
+
+                <div class="manager-form" id="employee-form">
+                    <div class="manager-form-grid">
+                        <input class="manager-input" id="emp-full-name" placeholder="Họ tên" />
+                        <input class="manager-input" id="emp-email" placeholder="Email" />
+                        <input class="manager-input" id="emp-phone" placeholder="Số điện thoại" />
+                        <select class="manager-input" id="emp-role"></select>
+                        <input class="manager-input" id="emp-password" type="password" placeholder="Mật khẩu (bắt buộc khi thêm mới)" />
+                        <select class="manager-input" id="emp-active">
+                            <option value="1">Hoạt động</option>
+                            <option value="0">Khóa</option>
+                        </select>
+                    </div>
+
+                    <div class="manager-form-actions">
+                        <button class="btn-control-large" type="button" id="emp-create-btn"><i class="fa-solid fa-plus"></i> Thêm</button>
+                        <button class="btn-control-large" type="button" id="emp-update-btn" disabled><i class="fa-solid fa-pen"></i> Cập nhật</button>
+                        <button class="btn-control-large" type="button" id="emp-cancel-btn" disabled><i class="fa-solid fa-xmark"></i> Hủy</button>
+                    </div>
+
+                    <input type="hidden" id="emp-edit-id" />
+                </div>
+
+                <div class="admin-control">
+                    <div class="admin-control-left">
+                        <select name="emp-status" id="emp-status">
+                            <option value="">Tất cả trạng thái</option>
+                            <option value="1">Đang hoạt động</option>
+                            <option value="0">Đã khóa</option>
+                        </select>
+                    </div>
+                    <div class="admin-control-center">
+                        <form action="" class="form-search" id="emp-search-form">
+                            <input type="text" class="form-search-input" id="emp-search-input" placeholder="Tìm kiếm nhân viên...">
+                            <button type="button" class="search-btn" id="emp-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div class="admin-control-right">
+                        <button class="btn-control-large" type="button" id="emp-refresh-btn"><i class="fa-solid fa-rotate-right"></i> Làm mới</button>
+                    </div>
+                </div>
+
+                <div class="table">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>Họ tên</td>
+                                <td>Email</td>
+                                <td>Phone</td>
+                                <td>Role</td>
+                                <td>Trạng thái</td>
+                                <td>Ngày tạo</td>
+                                <td>Thao tác</td>
+                            </tr>
+                        </thead>
+                        <tbody id="mgr-show-users">
+                            <tr>
+                                <td colspan="8" style="text-align: center;">Đang tải dữ liệu...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section 1: Tours (CRUD) -->
+            <div class="section">
+                <h1 class="page-title">Quản trị: Tours</h1>
+
+                <div class="manager-form" id="tour-form">
+                    <div class="manager-form-grid">
+                        <input class="manager-input" id="tour-name" placeholder="Tên tour" />
+                        <input class="manager-input" id="tour-start" type="date" />
+                        <input class="manager-input" id="tour-end" type="date" />
+                        <input class="manager-input" id="tour-max" type="number" min="1" placeholder="Số người tối đa" />
+                        <select class="manager-input" id="tour-region"></select>
+                        <input class="manager-input" id="tour-desc" placeholder="Mô tả" />
+                    </div>
+
+                    <div class="manager-form-actions">
+                        <button class="btn-control-large" type="button" id="tour-create-btn"><i class="fa-solid fa-plus"></i> Thêm</button>
+                        <button class="btn-control-large" type="button" id="tour-update-btn" disabled><i class="fa-solid fa-pen"></i> Cập nhật</button>
+                        <button class="btn-control-large" type="button" id="tour-cancel-btn" disabled><i class="fa-solid fa-xmark"></i> Hủy</button>
+                    </div>
+
+                    <input type="hidden" id="tour-edit-id" />
+                </div>
+
+                <div class="admin-control">
+                    <div class="admin-control-center">
+                        <form action="" class="form-search" id="tour-search-form">
+                            <input type="text" class="form-search-input" id="tour-search-input" placeholder="Tìm kiếm tour...">
+                            <button type="button" class="search-btn" id="tour-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div class="admin-control-right">
+                        <button class="btn-control-large" type="button" id="tour-refresh-btn"><i class="fa-solid fa-rotate-right"></i> Làm mới</button>
+                    </div>
+                </div>
+
+                <div class="table">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>Tên Tour</td>
+                                <td>Ngày bắt đầu</td>
+                                <td>Ngày kết thúc</td>
+                                <td>Số người tối đa</td>
+                                <td>Trạng thái</td>
+                                <td>Miền</td>
+                                <td>Thao tác</td>
+                            </tr>
+                        </thead>
+                        <tbody id="mgr-show-tours">
+                            <tr>
+                                <td colspan="8" style="text-align: center;">Đang tải dữ liệu...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section 2: Hình ảnh tour -->
+            <div class="section">
+                <h1 class="page-title">Quản trị: Hình ảnh tour</h1>
+
+                <div class="manager-form" id="tour-images-form">
+                    <div class="manager-form-grid">
+                        <input class="manager-input" id="tour-images-tour-id" type="number" min="1" placeholder="Tour ID" />
+                        <textarea class="manager-input" id="tour-images-input" rows="4" placeholder="Dán nhiều URL ảnh (mỗi dòng 1 URL)"></textarea>
+                        <label class="tour-images-main-toggle">
+                            <input type="checkbox" id="tour-images-first-main" />
+                            <span>Đặt ảnh đầu tiên làm ảnh chính</span>
+                        </label>
+                    </div>
+
+                    <div class="manager-form-actions">
+                        <button class="btn-control-large" type="button" id="tour-images-load-btn">
+                            <i class="fa-solid fa-rotate-right"></i> Tải ảnh
+                        </button>
+                        <button class="btn-control-large" type="button" id="tour-images-add-btn">
+                            <i class="fa-solid fa-image"></i> Thêm ảnh
+                        </button>
+                        <button class="btn-control-large" type="button" id="tour-images-refresh-btn">
+                            <i class="fa-solid fa-rotate-right"></i> Làm mới ảnh
+                        </button>
+                    </div>
+
+                    <div class="table" style="margin-top: 10px;">
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <td>Image ID</td>
+                                    <td>Ảnh</td>
+                                    <td>URL</td>
+                                    <td>Main</td>
+                                    <td>Ngày tạo</td>
+                                    <td>Thao tác</td>
+                                </tr>
+                            </thead>
+                            <tbody id="mgr-show-tour-images">
+                                <tr>
+                                    <td colspan="6" style="text-align:center;">Nhập Tour ID rồi bấm Tải ảnh</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Xét tình trạng tour -->
+            <div class="section">
+                <h1 class="page-title">Quản trị: Xét tình trạng tour</h1>
+
+                <div class="admin-control">
+                    <div class="admin-control-center">
+                        <form action="" class="form-search" id="status-set-search-form">
+                            <input type="text" class="form-search-input" id="status-set-search-input" placeholder="Tìm kiếm tour...">
+                            <button type="button" class="search-btn" id="status-set-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div class="admin-control-right">
+                        <button class="btn-control-large" type="button" id="status-set-refresh-btn"><i class="fa-solid fa-rotate-right"></i> Làm mới</button>
+                    </div>
+                </div>
+
+                <div class="table">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>Tên Tour</td>
+                                <td>Trạng thái hiện tại</td>
+                                <td>Chọn trạng thái</td>
+                                <td>Thao tác</td>
+                            </tr>
+                        </thead>
+                        <tbody id="mgr-set-status">
+                            <tr>
+                                <td colspan="5" style="text-align: center;">Đang tải dữ liệu...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section 4: Xem tình trạng tour -->
+            <div class="section">
+                <h1 class="page-title">Quản trị: Xem tình trạng tour</h1>
+
+                <div class="admin-control">
+                    <div class="admin-control-left">
+                        <select name="view-tour-status" id="view-tour-status">
+                            <option value="">Tất cả trạng thái</option>
+                            <option value="DRAFT">Chờ duyệt</option>
+                            <option value="OPEN">Mở</option>
+                            <option value="CLOSED">Đóng</option>
+                            <option value="ONGOING">Đang diễn ra</option>
+                            <option value="FINISHED">Hoàn thành</option>
+                            <option value="CANCELLED">Đã hủy</option>
+                        </select>
+                    </div>
+                    <div class="admin-control-center">
+                        <form action="" class="form-search" id="status-view-search-form">
+                            <input type="text" class="form-search-input" id="status-view-search-input" placeholder="Tìm kiếm tour...">
+                            <button type="button" class="search-btn" id="status-view-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div class="admin-control-right">
+                        <button class="btn-control-large" type="button" id="status-view-refresh-btn"><i class="fa-solid fa-rotate-right"></i> Làm mới</button>
+                    </div>
+                </div>
+
+                <div class="table">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>Tên Tour</td>
+                                <td>Ngày bắt đầu</td>
+                                <td>Ngày kết thúc</td>
+                                <td>Số người tối đa</td>
+                                <td>Trạng thái</td>
+                                <td>Miền</td>
+                            </tr>
+                        </thead>
+                        <tbody id="mgr-view-status">
+                            <tr>
+                                <td colspan="7" style="text-align: center;">Đang tải dữ liệu...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../src/js/manager.js"></script>
+</body>
+
+</html>

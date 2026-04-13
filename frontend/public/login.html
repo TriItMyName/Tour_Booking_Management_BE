@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../src/assets/css/login.css">
+    <script src="https://kit.fontawesome.com/172fe3c567.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Icon home ở góc trái trên -->
+    <a href="menu.html" class="home-icon" title="Quay về trang chủ">
+        <img src="../src/assets/image/icon_logo.png" alt="Home">
+    </a>
+    
+    <div class="wapper">
+        <form id="loginForm" action="">
+            <h1>Login</h1>
+            <div class="input-box">
+                <i class="fa-solid fa-user icon-left"></i>
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+                <i class="fa-solid fa-lock icon-left"></i>
+                <input type="password" id="password" placeholder="Password" required>
+                <i class="fa-regular fa-eye icon-right" id="togglePassword" aria-label="Show password" tabindex="0"></i>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox">Ghi nhớ đăng nhập</label>
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+            <button type="submit" class="btn-login">Đăng nhập</button>
+            <div class="register-link">
+                <p>Bạn chưa có tài khoản? <a href="register.html">Đăng ký</a></p>
+            </div>
+        </form>
+    </div>
+    <script>
+        // Toggle show/hide password
+        (function () {
+            const pwdInput = document.getElementById('password');
+            const toggle = document.getElementById('togglePassword');
+
+            function setVisible(visible) {
+                pwdInput.setAttribute('type', visible ? 'text' : 'password');
+                toggle.classList.toggle('fa-eye', !visible);
+                toggle.classList.toggle('fa-eye-slash', visible);
+                toggle.setAttribute('aria-label', visible ? 'Hide password' : 'Show password');
+            }
+
+            toggle.addEventListener('click', () => {
+                const isVisible = pwdInput.getAttribute('type') === 'text';
+                setVisible(!isVisible);
+            });
+
+            toggle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const isVisible = pwdInput.getAttribute('type') === 'text';
+                    setVisible(!isVisible);
+                }
+            });
+        })();
+    </script>
+
+    <script src="../src/js/login.js"></script>
+</body>
+
+</html>

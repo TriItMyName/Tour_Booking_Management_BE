@@ -1,0 +1,313 @@
+/* Tablet */
+@media (max-width: 1024px) {
+    :root {
+        --sidebar-width: 280px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .card-single {
+        padding: 20px;
+    }
+
+    .on-box h2 {
+        font-size: 32px;
+    }
+
+    .box p i {
+        font-size: 36px;
+    }
+
+    .admin-control {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-control-left,
+    .admin-control-center,
+    .admin-control-right {
+        width: 100%;
+    }
+
+    .admin-control-left select {
+        width: 100%;
+    }
+
+    .form-search {
+        width: 100%;
+    }
+
+    .form-search-input {
+        flex: 1;
+        width: 100%;
+    }
+
+    .admin-control-right {
+        display: flex;
+        gap: 10px;
+    }
+
+    .admin-control-right button {
+        flex: 1;
+    }
+
+    .table {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 800px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .header {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    .menu-icon-btn {
+        width: 45px;
+        height: 45px;
+    }
+
+    .menu-icon i {
+        font-size: 20px;
+    }
+
+    .container {
+        padding-top: 60px;
+    }
+
+    .sidebar {
+        top: 60px;
+        height: calc(100vh - 60px);
+        width: 250px;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+        width: 250px;
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    .sidebar:not(.open) ~ .content,
+    .sidebar.open ~ .content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .page-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .card-single {
+        padding: 20px;
+    }
+
+    .on-box h2 {
+        font-size: 28px;
+    }
+
+    .on-box h3 {
+        font-size: 14px;
+    }
+
+    .box p i {
+        font-size: 32px;
+    }
+
+    .admin-control-left select {
+        min-width: 100%;
+    }
+
+    .form-search-input {
+        width: 100%;
+    }
+
+    .admin-control-right {
+        flex-direction: column;
+    }
+
+    .btn-control-large {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .table {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    thead td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    tbody td {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+
+    .btn-action {
+        padding: 6px 10px;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .status-badge {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+
+    .modal-container {
+        width: 95%;
+        padding: 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-container-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .modal-close {
+        width: 35px;
+        height: 35px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .modal-close i {
+        font-size: 18px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        font-size: 13px;
+    }
+
+    .form-control {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .form-submit {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .channel-logo {
+        font-size: 18px;
+    }
+
+    .channel-logo i {
+        font-size: 28px;
+    }
+
+    .sidebar-link {
+        padding: 12px 15px;
+    }
+
+    .sidebar-icon {
+        font-size: 20px;
+    }
+
+    .hidden-sidebar {
+        font-size: 14px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .header {
+        height: 55px;
+    }
+
+    .container {
+        padding-top: 55px;
+    }
+
+    .sidebar {
+        top: 55px;
+        height: calc(100vh - 55px);
+        width: 220px;
+    }
+
+    .sidebar.open {
+        width: 220px;
+    }
+
+    .content {
+        padding: 15px 10px;
+    }
+
+    .page-title {
+        font-size: 20px;
+    }
+
+    .on-box h2 {
+        font-size: 24px;
+    }
+
+    .box p i {
+        font-size: 28px;
+    }
+
+    .modal-container {
+        width: 98%;
+        padding: 15px;
+    }
+
+    .modal-container-title {
+        font-size: 18px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    thead td {
+        font-size: 11px;
+        padding: 8px 5px;
+    }
+
+    tbody td {
+        font-size: 12px;
+        padding: 8px 5px;
+    }
+
+    .btn-action {
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+
+    .status-badge {
+        padding: 3px 6px;
+        font-size: 10px;
+    }
+}

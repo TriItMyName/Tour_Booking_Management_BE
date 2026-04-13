@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đặt tour</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+    <!-- Base styles (font + variables) -->
+    <link rel="stylesheet" href="../src/assets/css/menu.css" />
+    <link rel="stylesheet" href="../src/assets/css/booktour.css" />
+  </head>
+
+  <body class="booktour-page">
+    <div class="booktour-topbar">
+      <a href="menu.html" class="booktour-logo" aria-label="Về trang chủ">
+        <img class="booktour-logo-img" src="../src/assets/image/icon_logo.png" alt="Warring" />
+      </a>
+    </div>
+
+    <main class="booktour-main">
+      <div class="booktour-container">
+        <div class="booktour-card">
+          <div class="booktour-media">
+            <img id="tourImage" src="../src/assets/image/icon_logo.png" alt="Tour" />
+          </div>
+
+          <div class="booktour-info">
+            <h1 id="tourTitle" class="booktour-title">Đang tải...</h1>
+            <p id="tourDesc" class="booktour-desc"></p>
+
+            <div class="booktour-meta" aria-label="Thông tin tour">
+              <div class="booktour-meta-row"><span class="k">Mã tour:</span> <span class="v" id="tourId">-</span></div>
+              <div class="booktour-meta-row"><span class="k">Miền:</span> <span class="v" id="tourRegion">-</span></div>
+              <div class="booktour-meta-row"><span class="k">Ngày khởi hành:</span> <span class="v" id="tourStart">-</span></div>
+              <div class="booktour-meta-row"><span class="k">Ngày kết thúc:</span> <span class="v" id="tourEnd">-</span></div>
+              <div class="booktour-meta-row"><span class="k">Số chỗ tối đa:</span> <span class="v" id="tourMax">-</span></div>
+              <div class="booktour-meta-row"><span class="k">Trạng thái:</span> <span class="v" id="tourStatus">-</span></div>
+            </div>
+
+            <div id="tourAlert" class="booktour-alert" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="booktour-form-card">
+          <h2 class="booktour-form-title">Thông tin liên hệ</h2>
+
+          <form id="bookingForm" class="booktour-form" novalidate>
+            <div class="booktour-form-row">
+              <label for="fullName">Họ tên *</label>
+              <input id="fullName" name="fullName" type="text" placeholder="Họ tên" required />
+            </div>
+
+            <div class="booktour-form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="Email" readonly />
+            </div>
+
+            <div class="booktour-form-row">
+              <label for="phone">Số điện thoại *</label>
+              <input id="phone" name="phone" type="tel" placeholder="Số điện thoại" required />
+            </div>
+
+            <div class="booktour-form-row">
+              <label for="address">Địa chỉ</label>
+              <input id="address" name="address" type="text" placeholder="Địa chỉ" />
+            </div>
+
+            <div class="booktour-form-row">
+              <label for="note">Ghi chú</label>
+              <textarea id="note" name="note" rows="4" placeholder="Ghi chú thêm (nếu có)"></textarea>
+            </div>
+
+            <div class="booktour-form-actions">
+              <button type="submit" class="btn" id="submitBookingBtn">Xác nhận đặt tour</button>
+              <a class="booktour-secondary" href="showregions.html">Quay lại danh mục</a>
+            </div>
+
+            <div id="bookingMessage" class="booktour-message" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="../src/js/booktour.js"></script>
+  </body>
+</html>

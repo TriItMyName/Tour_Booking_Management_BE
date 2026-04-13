@@ -1,0 +1,191 @@
+/* Page-specific styles for booking form (no top header bar) */
+
+.booktour-page {
+  background: #fff;
+}
+
+.booktour-topbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 1.6rem;
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.booktour-logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.booktour-logo-img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+}
+
+.booktour-main {
+  padding-top: 2rem;
+}
+
+.booktour-container {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+}
+
+.booktour-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.booktour-media img {
+  width: 100%;
+  height: 32rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  background: #f3f3f3;
+}
+
+.booktour-title {
+  font-size: 2.2rem;
+  color: var(--black);
+  margin-bottom: 0.8rem;
+  text-transform: none;
+}
+
+.booktour-desc {
+  font-size: 1.4rem;
+  color: var(--light-color);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  text-transform: none;
+}
+
+.booktour-meta {
+  display: grid;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+  color: var(--black);
+  margin-bottom: 1rem;
+  text-transform: none;
+}
+
+.booktour-meta-row {
+  display: flex;
+  gap: 0.8rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.booktour-meta-row .k {
+  min-width: 13rem;
+  color: #1d2231;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.booktour-meta-row .v {
+  color: #1d2231;
+  text-transform: none;
+}
+
+.booktour-alert {
+  margin-top: 0.6rem;
+  font-size: 1.4rem;
+  color: #1d2231;
+  text-transform: none;
+}
+
+.booktour-form-card {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.booktour-form-title {
+  font-size: 1.8rem;
+  color: var(--black);
+  margin-bottom: 1.2rem;
+  text-transform: none;
+}
+
+.booktour-form {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.booktour-form-row {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.booktour-form-row label {
+  font-size: 1.4rem;
+  color: #1d2231;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.booktour-form-row input,
+.booktour-form-row textarea {
+  width: 100%;
+  padding: 1.2rem 1.3rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.9rem;
+  font-size: 1.4rem;
+  color: #1d2231;
+  background: #fff;
+  text-transform: none;
+}
+
+.booktour-form-row input[readonly] {
+  background: rgba(0, 0, 0, 0.03);
+  cursor: not-allowed;
+}
+
+.booktour-form-row textarea {
+  resize: vertical;
+}
+
+.booktour-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.booktour-secondary {
+  font-size: 1.4rem;
+  color: var(--main-color);
+  text-transform: none;
+}
+
+.booktour-secondary:hover {
+  text-decoration: underline;
+}
+
+.booktour-message {
+  font-size: 1.4rem;
+  margin-top: 0.6rem;
+  color: #1d2231;
+  text-transform: none;
+}
+
+@media (max-width: 900px) {
+  .booktour-card {
+    grid-template-columns: 1fr;
+  }
+
+  .booktour-media img {
+    height: 26rem;
+  }
+}

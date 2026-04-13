@@ -1,0 +1,38 @@
+@import "./admin.css";
+
+/* Tùy biến nhỏ cho trang nhân viên văn phòng */
+.page-title {
+    letter-spacing: 0.2px;
+}
+
+.office-hint {
+    margin-top: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Nút duyệt / từ chối */
+.btn-action.approve {
+    background: rgba(52, 211, 153, 0.22);
+    border-color: rgba(52, 211, 153, 0.55);
+}
+
+.btn-action.approve:hover {
+    background: rgba(52, 211, 153, 0.32);
+}
+
+.btn-action.reject {
+    background: rgba(239, 68, 68, 0.22);
+    border-color: rgba(239, 68, 68, 0.55);
+}
+
+.btn-action.reject:hover {
+    background: rgba(239, 68, 68, 0.32);
+}
+
+.btn-action:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none !important;
+}

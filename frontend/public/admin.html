@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/assets/css/admin.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../src/assets/css/admin-responsive.css">
+    <title>Quản lý Tour Du lịch</title>
+</head>
+
+<body>
+    <header class="header">
+        <button class="menu-icon-btn">
+            <div class="menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </button>
+    </header>
+    <div class="container">
+        <aside class="sidebar open">
+            <div class="top-sidebar">
+                <a href="#" class="channel-logo"><img src="../src/assets/image/icon_logo.png" alt="Tour Logo"></a>
+            </div>
+            <div class="middle-sidebar">
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item tab-content active">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-house"></i></div>
+                            <div class="hidden-sidebar">Trang tổng quan</div>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item tab-content">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-users"></i></div>
+                            <div class="hidden-sidebar">Tổng quan Users</div>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item tab-content">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                            <div class="hidden-sidebar">Tổng quan Tours</div>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item tab-content">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-ticket"></i></div>
+                            <div class="hidden-sidebar">Tổng quan Bookings</div>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item tab-content">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                            <div class="hidden-sidebar">Lịch sử đăng nhập</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-sidebar">
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item user-logout">
+                        <a href="login.html" class="sidebar-link" id="logout-acc">
+                            <div class="sidebar-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+                            <div class="hidden-sidebar">Đăng xuất</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <!-- Dashboard Section -->
+            <div class="section active">
+                <h1 class="page-title">Trang quản lý hệ thống Tour Du lịch</h1>
+                <div class="cards">
+                    <div class="card-single">
+                        <div class="box">
+                            <div class="on-box">
+                                <h2 id="total-users">0</h2>
+                                <h3>Tổng Users</h3>
+                            </div>
+                            <div>
+                                <p><i class="fa-solid fa-users"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div class="box">
+                            <div class="on-box">
+                                <h2 id="total-tours">0</h2>
+                                <h3>Tổng Tours</h3>
+                            </div>
+                            <div>
+                                <p><i class="fa-solid fa-map-location-dot"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div class="box">
+                            <div class="on-box">
+                                <h2 id="total-bookings">0</h2>
+                                <h3>Tổng Bookings</h3>
+                            </div>
+                            <div>
+                                <p><i class="fa-solid fa-ticket"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Section -->
+            <div class="section">
+                <div class="admin-control">
+                    <div class="admin-control-left">
+                        <select name="tinh-trang-user" id="tinh-trang-user">
+                            <option value="">Tất cả trạng thái</option>
+                            <option value="1">Đang hoạt động</option>
+                            <option value="0">Đã khóa</option>
+                        </select>
+                    </div>
+                    <div class="admin-control-center">
+                        <form action="" class="form-search">
+                            <input type="text" class="form-search-input" placeholder="Tìm kiếm user...">
+                            <button type="button" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div class="admin-control-right">
+                        <button class="btn-control-large"><i class="fa-solid fa-rotate-right"></i> Làm mới</button>
+                    </div>
+                </div>
+                <div class="table">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>Họ tên</td>
+                                <td>Email</td>
+                                <td>Phone</td>
+                                <td>Role</td>
+                                <td>Trạng thái</td>
+                                <td>Ngày tạo</td>
+                            </tr>
+                        </thead>
+                        <tbody id="show-user">
+                            <tr>
+                                <td colspan="7" style="text-align: center;">Đang tải dữ liệu...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tours Section -->
+            <div class="section">
+                <div class="admin-control">
+                    <div class="admin-control-left">
+                        <select name="tour-status" id="tour-status">
+                            <option value="">Tất cả trạng thái</option>
+                            <option value="OPEN">Mở</option>
+                            <option value="CLOSED">Đóng</option>
+                            <option value="ONGOING">Đang diễn ra</option>
+                            <option value="FINISHED">Hoàn thành</option>
+                            <option value="CANCELLED">Đã hủy</option>
+                        </select>
+                    </div>
+                    <div class="admin-control-center">
+                        <form action="" class="form-search">
+                            <input type="text" class="form-search-input" placeholder="Tìm kiếm tour...">
+                            <button type="button" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div class="admin-control-right">
+                        <button class="btn-control-large"><i class="fa-solid fa-rotate-right"></i> Làm mới</button>
+                    </div>
+                </div>
+                <div class="table">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>Tên Tour</td>
+                                <td>Ngày bắt đầu</td>
+                                <td>Ngày kết thúc</td>
+                                <td>Số người tối đa</td>
+                                <td>Trạng thái</td>
+                                <td>Miền</td>
+                            </tr>
+                        </thead>
+                        <tbody id="show-tours">
+                            <tr>
+                                <td colspan="7" style="text-align: center;">Đang tải dữ liệu...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Bookings Section -->
+            <div class="section">
+                <div class="admin-control">
+                    <div class="admin-control-left">
+                        <select name="booking-status" id="booking-status">
+                            <option value="">Tất cả trạng thái</option>
+                            <option value="PENDING">Chờ duyệt</option>
+                            <option value="APPROVED">Đã duyệt</option>
+                            <option value="REJECTED">Từ chối</option>
+                            <option value="CANCELLED">Đã hủy</option>
+                        </select>
+                    </div>
+                    <div class="admin-control-center">
+                        <form action="" class="form-search">
+                            <input type="text" class="form-search-input" placeholder="Tìm kiếm booking...">
+                            <button type="button" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div class="admin-control-right">
+                        <button class="btn-control-large"><i class="fa-solid fa-rotate-right"></i> Làm mới</button>
+                    </div>
+                </div>
+                <div class="table">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>Tour</td>
+                                <td>User</td>
+                                <td>Trạng thái</td>
+                                <td>Ngày đăng ký</td>
+                                <td>Thao tác</td>
+                            </tr>
+                        </thead>
+                        <tbody id="show-bookings">
+                            <tr>
+                                <td colspan="6" style="text-align: center;">Đang tải dữ liệu...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Login History Section -->
+            <div class="section">
+                <div class="admin-control">
+                    <div class="admin-control-left">
+                        <select name="login-status" id="login-status">
+                            <option value="">Tất cả</option>
+                            <option value="SUCCESS">Thành công</option>
+                            <option value="FAILED">Thất bại</option>
+                        </select>
+                    </div>
+                    <div class="admin-control-center">
+                        <form action="" class="form-search">
+                            <input type="text" class="form-search-input" placeholder="Tìm kiếm user...">
+                            <button type="button" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div class="admin-control-right">
+                        <button class="btn-control-large"><i class="fa-solid fa-rotate-right"></i> Làm mới</button>
+                    </div>
+                </div>
+                <div class="table">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>STT</td>
+                                <td>User ID</td>
+                                <td>Tên User</td>
+                                <td>Thời gian</td>
+                                <td>IP Address</td>
+                                <td>Trạng thái</td>
+                            </tr>
+                        </thead>
+                        <tbody id="show-login-history">
+                            <tr>
+                                <td colspan="6" style="text-align: center;">Đang tải dữ liệu...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../src/js/admin.js"></script>
+</body>
+
+</html>

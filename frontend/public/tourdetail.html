@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Chi tiết tour</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+		<!-- Swiper (image slider) -->
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+		<!-- Shared styles (menu header + tokens) -->
+		<link rel="stylesheet" href="../src/assets/css/menu.css" />
+		<link rel="stylesheet" href="../src/assets/css/tourdetail.css" />
+	</head>
+
+	<body>
+		<!-- shared header mount (reused from menu.html) -->
+		<div id="sharedHeaderMount"></div>
+
+		<main class="td-main">
+			<div class="td-breadcrumb" id="tdBreadcrumb">Trang chủ / Tours / Chi tiết</div>
+
+			<h1 class="td-title" id="tdTitle">Đang tải...</h1>
+			<div class="td-meta" id="tdMeta"></div>
+
+			<div class="td-grid">
+				<section class="td-left">
+					<div class="td-hero">
+						<div class="td-hero-native" aria-label="Ảnh tour">
+							<button class="td-hero-nav td-hero-prev" type="button" aria-label="Ảnh trước">
+								<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+							</button>
+							<button class="td-hero-nav td-hero-next" type="button" aria-label="Ảnh sau">
+								<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+							</button>
+							<div class="td-hero-track" id="tdHeroSlides"></div>
+						</div>
+					</div>
+
+					<section class="td-section" aria-label="Điểm nhấn hành trình">
+						<div class="td-section-title">Điểm nhấn hành trình</div>
+						<div class="td-section-content" id="tdHighlights">—</div>
+					</section>
+
+					<section class="td-section" aria-label="Lịch trình">
+						<div class="td-section-title">Lịch trình</div>
+						<div class="td-timeline" id="tdTimeline">
+							<div class="td-empty">Đang tải lịch trình...</div>
+						</div>
+					</section>
+				</section>
+
+				<aside class="td-right" aria-label="Thông tin tour">
+					<div class="td-card">
+						<div class="td-card-title" id="tdSideTitle">Tour</div>
+
+						<div class="td-info">
+							<div class="td-row"><span class="td-k">Thời gian:</span><span class="td-v" id="tdDuration">—</span></div>
+							<div class="td-row"><span class="td-k">Khởi hành:</span><span class="td-v" id="tdStart">—</span></div>
+							<div class="td-row"><span class="td-k">Kết thúc:</span><span class="td-v" id="tdEnd">—</span></div>
+							<div class="td-row"><span class="td-k">Miền:</span><span class="td-v" id="tdRegion">—</span></div>
+							<div class="td-row"><span class="td-k">Tối đa:</span><span class="td-v" id="tdMax">—</span></div>
+							<div class="td-row"><span class="td-k">Trạng thái:</span><span class="td-v" id="tdStatus">—</span></div>
+						</div>
+					</div>
+
+					<div class="td-card td-book">
+						<div class="td-price" id="tdPrice">Giá: Liên hệ</div>
+						<input class="td-date" id="tdDate" type="text" readonly />
+						<a class="td-book-btn" id="tdBookBtn" href="#">ĐẶT TOUR</a>
+						<div class="td-book-hint" id="tdBookHint"></div>
+					</div>
+				</aside>
+			</div>
+
+			<!-- Footer (reuse menu footer style) -->
+			<section class="Lienhe" id="Lienhe">
+				<div class="box-container">
+					<div class="box">
+						<h3>Quick links</h3>
+						<a href="showregions.html">Danh mục</a>
+						<a href="#Feedback">Feedback</a>
+						<a href="#Lienhe">Liên hệ</a>
+					</div>
+					<div class="box">
+						<h3>Thông tin liên hệ</h3>
+						<a href="#">(+84) 355 768 900</a>
+						<a href="#">warringteam01@gmail.com</a>
+					</div>
+					<div class="box">
+						<h3>Theo dõi thêm tại</h3>
+						<a href="#">facebook</a>
+						<a href="#">instagram</a>
+						<a href="#">twitter</a>
+						<a href="#">tiktok</a>
+					</div>
+				</div>
+				<div class="credit">copyright @ 2026 by <span>warring team</span></div>
+			</section>
+		</main>
+
+		<script src="../src/js/sharedHeader.js"></script>
+		<script src="../src/js/tourdetail.js"></script>
+	</body>
+</html>

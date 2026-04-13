@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../src/assets/css/office.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"
+        type="text/css" />
+    <link rel="stylesheet" href="../src/assets/css/office-responsive.css" />
+
+    <title>Nhân viên văn phòng - Quản lý Tour</title>
+</head>
+
+<body>
+    <header class="header">
+        <button class="menu-icon-btn" aria-label="Mở/đóng menu">
+            <div class="menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </button>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar open">
+            <div class="top-sidebar">
+                <a href="#" class="channel-logo" title="Tour System">
+                    <img src="../src/assets/image/icon_logo.png" alt="Tour Logo" />
+                </a>
+            </div>
+
+            <div class="middle-sidebar">
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item tab-content active">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                            <div class="hidden-sidebar">Tình trạng Tours</div>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-list-item tab-content">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-circle-check"></i></div>
+                            <div class="hidden-sidebar">Duyệt Tours</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-sidebar">
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item user-logout">
+                        <a href="login.html" class="sidebar-link" id="logout-acc">
+                            <div class="sidebar-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+                            <div class="hidden-sidebar">Đăng xuất</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="content">
+
+            <!-- Section 0: Xem tình trạng tour -->
+            <div class="section active">
+                <h1 class="page-title">Nhân viên văn phòng: Tình trạng Tours</h1>
+
+                <div class="admin-control">
+                    <div class="admin-control-left">
+                        <select name="office-tour-status" id="office-tour-status">
+                            <option value="">Tất cả trạng thái</option>
+                            <option value="DRAFT">Chờ duyệt</option>
+                            <option value="OPEN">Mở</option>
+                            <option value="CLOSED">Đóng</option>
+                            <option value="ONGOING">Đang diễn ra</option>
+                            <option value="FINISHED">Hoàn thành</option>
+                            <option value="CANCELLED">Đã hủy</option>
+                        </select>
+                    </div>
+
+                    <div class="admin-control-center">
+                        <form action="" class="form-search">
+                            <input type="text" class="form-search-input" id="tour-status-search-input"
+                                placeholder="Tìm kiếm tour theo tên..." />
+                            <button type="button" class="search-btn" id="tour-status-search-btn">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="admin-control-right">
+                        <button class="btn-control-large" type="button" id="tour-status-refresh-btn">
+                            <i class="fa-solid fa-rotate-right"></i> Làm mới
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>Tên Tour</td>
+                                <td>Ngày bắt đầu</td>
+                                <td>Ngày kết thúc</td>
+                                <td>Số người tối đa</td>
+                                <td>Trạng thái</td>
+                                <td>Miền</td>
+                            </tr>
+                        </thead>
+                        <tbody id="office-show-tours-status">
+                            <tr>
+                                <td colspan="7" style="text-align:center;">Đang tải dữ liệu...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section 1: Duyệt tour (DRAFT -> OPEN / CANCELLED) -->
+            <div class="section">
+                <h1 class="page-title">Nhân viên văn phòng: Duyệt Tours</h1>
+
+                <div class="admin-control">
+                    <div class="admin-control-center">
+                        <form action="" class="form-search">
+                            <input type="text" class="form-search-input" id="approval-search-input"
+                                placeholder="Tìm kiếm tour theo tên..." />
+                            <button type="button" class="search-btn" id="approval-search-btn">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="admin-control-right">
+                        <button class="btn-control-large" type="button" id="approval-refresh-btn">
+                            <i class="fa-solid fa-rotate-right"></i> Làm mới
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>Tên Tour</td>
+                                <td>Ngày bắt đầu</td>
+                                <td>Ngày kết thúc</td>
+                                <td>Trạng thái</td>
+                                <td>Hướng dẫn viên</td>
+                                <td>Thao tác</td>
+                            </tr>
+                        </thead>
+                        <tbody id="office-show-tours-approval">
+                            <tr>
+                                <td colspan="7" style="text-align:center;">Đang tải dữ liệu...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../src/js/office.js"></script>
+</body>
+
+</html>

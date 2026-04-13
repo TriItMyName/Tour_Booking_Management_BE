@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>main menu</title>
+
+        <!-- Swiper starts -->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <!-- Swiper ends-->
+
+        <!-- font link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <!-- css link -->
+        <link rel="stylesheet" href="../src/assets/css/menu.css">
+    </head>
+
+    <body>
+        <!-- shared header mount (reused from menu.html) -->
+        <div id="sharedHeaderMount"></div>
+
+        <!-- home section starts -->
+        <section class="Trangchu" id="Trangchu">
+            <div class="swiper-container home-slider">
+                <div class="swiper-wrapper wrapper" id="menu-slides">
+                    <!-- Slides sẽ được load bằng API (tối đa 4) trong ../src/js/menu.js -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+        <!-- home section ends -->
+
+        <!-- Footer section starts -->
+        <section class="Lienhe" id="Lienhe">
+            <div class="box-container">
+                <div class="box">
+                    <h3>Quick links</h3>
+                    <a href="#">Danh mục</a>
+                    <a href="#Feedback">Feedback</a>
+                    <a href="#Lienhe">Liên hệ</a>
+                </div>
+                <div class="box">
+                    <h3>Thông tin liên hệ</h3>
+                    <a href="#">(+84) 355 768 900</a>
+                    <a href="#">warringteam01@gmail.com</a>
+                </div>
+                <div class="box">
+                    <h3>Theo dõi thêm tại</h3>
+                    <a href="#">facebook</a>
+                    <a href="#">instagram</a>
+                    <a href="#">twitter</a>
+                    <a href="#">tiktok</a>
+                </div>
+            </div>
+            <div class="credit">copyright @ 2026 by <span>warring team</span></div>
+        </section>
+        <!-- Footer section ends -->
+
+        <!-- link js -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="../src/js/sharedHeader.js"></script>
+        <script src="../src/js/menu.js"></script>
+    </body>
+</html>

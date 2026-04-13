@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+:root {
+  --main-color: #5569ff;
+  --black: #070e1e;
+  --light-color: #666;
+  --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+* {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all .2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+section:nth-child(even) {
+  background: #eee;
+}
+
+/* Header (giữ layout menu cũ, chỉ đổi màu theo admin) */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--main-color);
+  padding: 1rem 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+}
+
+header .logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+header .logo .logo-img {
+  height: 6rem;
+  width: 6rem;
+  object-fit: contain;
+}
+
+header .navbar a {
+  font-size: 1.7rem;
+  border-radius: .5rem;
+  padding: .5rem 1.5rem;
+  color: rgba(255,255,255,.92);
+  margin-left: .5rem;
+}
+
+header .navbar a.active,
+header .navbar a:hover {
+  background: #fff;
+  color: var(--main-color);
+}
+
+/* Dropdown menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown .dropbtn {
+  font-size: 1.7rem;
+  border-radius: .5rem;
+  padding: .5rem 1.5rem;
+  color: rgba(255,255,255,.92);
+  background: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 22rem;
+  box-shadow: var(--box-shadow);
+  z-index: 1001;
+  border-radius: .5rem;
+  padding: .8rem;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background: #fff;
+  color: var(--main-color);
+}
+
+/* Danh mục dropdown items lấy API */
+.region-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+/* NOTE: dropdown nằm trong .navbar nên cần selector đủ mạnh để không bị ăn màu trắng của `header .navbar a` */
+header .navbar .dropdown-content .region-dropdown a {
+  display: block;
+  padding: 1rem 1.2rem;
+  border-radius: .5rem;
+  font-size: 1.5rem;
+  color: #1d2231;
+  text-transform: none;
+  background: transparent;
+}
+
+header .navbar .dropdown-content .region-dropdown a:hover,
+header .navbar .dropdown-content .region-dropdown a.active {
+  background: rgba(85, 105, 255, 0.12);
+  color: var(--main-color);
+}
+
+/* Icons */
+header .icons i,
+header .icons a {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  text-align: center;
+  font-size: 1.7rem;
+  color: #fff;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+header .icons i:hover,
+header .icons a:hover {
+  color: var(--main-color);
+  background: #fff;
+  transform: rotate(30deg);
+}
+
+header .icons #menu-bars {
+  display: none;
+}
+
+/* Search form */
+#search-form {
+  position: fixed;
+  top: -110%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1004;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+#search-form.active {
+  top: 0;
+}
+
+#search-form #search-box {
+  width: 50rem;
+  border-bottom: 0.1rem solid #fff;
+  padding: 1rem 0;
+  color: #eee;
+  font-size: 3rem;
+  text-transform: none;
+  background: none;
+}
+
+#search-form label {
+  color: #fff;
+  cursor: pointer;
+  font-size: 3rem;
+}
+
+#search-form label:hover {
+  color: var(--main-color);
+}
+
+#search-form #close {
+  position: absolute;
+  color: #fff;
+  cursor: pointer;
+  top: 2rem;
+  right: 3rem;
+  font-size: 5rem;
+}
+
+/* Home slider */
+.Trangchu .home-slider .slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-top: 9rem;
+  height: 100vh;
+}
+
+.Trangchu .home-slider .slide .content {
+  flex: 1 1 45rem;
+}
+
+.Trangchu .home-slider .slide .image {
+  flex: 1 1 45rem;
+}
+
+.Trangchu .home-slider .slide .image img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.Trangchu .home-slider .slide .content span {
+  color: var(--main-color);
+  font-size: 2.5rem;
+}
+
+.Trangchu .home-slider .slide .content h3 {
+  color: var(--black);
+  font-size: 5rem;
+}
+
+.Trangchu .home-slider .slide .content p {
+  color: var(--light-color);
+  font-size: 2.2rem;
+  padding: .5rem 0;
+  line-height: 1.5;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--main-color);
+}
+
+/* Button */
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  font-size: 1.7rem;
+  color: #fff;
+  background: var(--black);
+  border-radius: .5rem;
+  cursor: pointer;
+  padding: .8rem 3rem;
+}
+
+.btn:hover {
+  background: var(--main-color);
+  letter-spacing: .1rem;
+}
+
+/* Footer */
+.Lienhe .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+}
+
+.Lienhe .box-container .box h3 {
+  padding: .5rem 0;
+  font-size: 2.5rem;
+  color: var(--black);
+}
+
+.Lienhe .box-container .box a {
+  display: block;
+  padding: .5rem 0;
+  font-size: 1.5rem;
+  color: var(--light-color);
+}
+
+.Lienhe .box-container .box a:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+
+.Lienhe .credit {
+  text-align: center;
+  border-top: .1rem solid rgba(0,0,0,.1);
+  font-size: 2rem;
+  color: var(--black);
+  padding: .5rem;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.Lienhe .credit span {
+  color: var(--main-color);
+}

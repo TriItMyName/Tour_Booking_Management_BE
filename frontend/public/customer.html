@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap&subset=vietnamese" rel="stylesheet">
+
+  <link rel="stylesheet" href="../src/assets/css/office.css" />
+  <link rel="stylesheet" href="../src/assets/css/office-responsive.css" />
+  <link rel="stylesheet" href="../src/assets/css/customer.css" />
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+  <title>Khách hàng - Quản lý Tour</title>
+</head>
+
+<body>
+  <header class="header">
+    <button class="menu-icon-btn" aria-label="Mở/đóng menu">
+      <div class="menu-icon"><i class="fa-solid fa-bars"></i></div>
+    </button>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar open">
+      <div class="top-sidebar">
+        <a href="#" class="channel-logo" title="Tour System">
+          <img src="../src/assets/image/icon_logo.png" alt="Tour Logo" />
+        </a>
+      </div>
+
+      <div class="middle-sidebar">
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item tab-content active">
+            <a href="#" class="sidebar-link">
+              <div class="sidebar-icon"><i class="fa-solid fa-bell"></i></div>
+              <div class="hidden-sidebar">Thông báo</div>
+            </a>
+          </li>
+
+          <li class="sidebar-list-item tab-content">
+            <a href="#" class="sidebar-link">
+              <div class="sidebar-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+              <div class="hidden-sidebar">Lịch Trình</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bottom-sidebar">
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item user-logout">
+            <a href="login.html" class="sidebar-link" id="logout-acc">
+              <div class="sidebar-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+              <div class="hidden-sidebar">Đăng xuất</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="section active">
+        <h1 class="page-title">Khách hàng: Thông báo</h1>
+
+        <div class="admin-control">
+          <div class="admin-control-left"></div>
+
+          <div class="admin-control-center">
+            <div class="customer-noti-actions">
+              <button class="btn-control-large" type="button" id="customer-noti-refresh-btn">
+                <i class="fa-solid fa-rotate-right"></i> Tải lại
+              </button>
+              <button class="btn-control-large" type="button" id="customer-noti-readall-btn">
+                <i class="fa-solid fa-check-double"></i> Đã đọc hết
+              </button>
+              <button class="btn-control-large" type="button" id="customer-noti-delete-read-btn">
+                <i class="fa-solid fa-trash"></i> Xóa đã đọc
+              </button>
+            </div>
+          </div>
+
+          <div class="admin-control-right"></div>
+        </div>
+
+        <div class="customer-box">
+          <div id="customer-noti-list" class="customer-noti-list">
+            <div class="customer-empty">Chưa có thông báo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h1 class="page-title">Khách hàng: Lịch Trình</h1>
+
+        <div class="admin-control">
+          <div class="admin-control-left"></div>
+
+          <div class="admin-control-center">
+            <button class="btn-control-large" type="button" id="customer-schedule-refresh-btn">
+              <i class="fa-solid fa-rotate-right"></i> Làm mới
+            </button>
+          </div>
+
+          <div class="admin-control-right"></div>
+        </div>
+
+        <div class="customer-box">
+          <div id="customer-schedule-list" class="customer-schedule-list">
+            <div class="customer-empty">Chưa có lịch trình</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../src/js/customer.js"></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+@import "./admin.css";
+
+.admin-control-center .btn-control-large {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-control-center .btn-control-large:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.customer-box {
+  margin-top: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.customer-empty {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0.85;
+  padding: 10px 0;
+}
+
+.customer-noti-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.customer-noti-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.customer-noti-item {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+
+.customer-noti-item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.customer-noti-item.unread {
+  background: rgba(35, 35, 45, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.customer-noti-title {
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.customer-noti-meta {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.80);
+}
+
+.customer-noti-content {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.customer-schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.schedule-card {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.schedule-title {
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.schedule-sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.customer-timeline {
+  margin-top: 12px;
+  position: relative;
+  padding: 10px 6px 6px;
+}
+
+.customer-timeline .tl-line {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 54px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 20px;
+}
+
+.customer-timeline .tl-nodes {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(120px, 1fr);
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.tl-node {
+  text-align: center;
+  min-width: 120px;
+}
+
+.tl-time {
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.90);
+}
+
+.tl-day {
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.85;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tl-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 auto 8px;
+  background: rgba(255, 255, 255, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.30);
+}
+
+.tl-place {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.82);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+  margin: 0 auto;
+}
+
+.tl-node.passed .tl-dot {
+  background: rgba(52, 211, 153, 0.35);
+  border-color: rgba(52, 211, 153, 0.55);
+}
+
+.tl-node.active .tl-dot {
+  background: rgba(59, 130, 246, 0.55);
+  border-color: rgba(255, 255, 255, 0.60);
+  animation: tlBlink 1s infinite ease-in-out;
+  box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.18);
+}
+
+@keyframes tlBlink {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.75; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+#customer-booking-confirm-modal.modal {
+  background: rgba(10, 12, 20, 0.62);
+  backdrop-filter: blur(10px);
+}
+
+#customer-booking-confirm-modal .modal-container {
+  width: min(520px, calc(100% - 32px));
+  max-width: 520px;
+  padding: 26px 28px;
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  animation: customerModalPop 0.18s ease-out;
+}
+
+@keyframes customerModalPop {
+  from { opacity: 0; transform: translateY(-12px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+#customer-booking-confirm-modal .modal-container-title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
+}
+
+/* ✅ remove the "box border" around message */
+#customer-booking-confirm-modal .customer-confirm-message {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin-top: -6px;
+  margin-bottom: 8px;
+
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+#customer-booking-confirm-modal .customer-confirm-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 2px;
+}
+
+#customer-booking-confirm-modal .customer-confirm-actions .btn-action {
+  margin-right: 0;
+  min-width: 140px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  transition: transform .14s ease, box-shadow .14s ease, background .14s ease, border-color .14s ease;
+}
+
+#customer-booking-confirm-modal .customer-confirm-actions .btn-action.approve {
+  background: rgba(52, 211, 153, 0.22);
+  border-color: rgba(52, 211, 153, 0.55);
+}
+
+#customer-booking-confirm-modal .customer-confirm-actions .btn-action.reject {
+  background: rgba(239, 68, 68, 0.20);
+  border-color: rgba(239, 68, 68, 0.50);
+}
+
+#customer-booking-confirm-modal .customer-confirm-actions .btn-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+#customer-booking-confirm-modal .modal-close {
+  top: 14px;
+  right: 14px;
+  width: 46px;
+  height: 46px;
+
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+}
+
+#customer-booking-confirm-modal .modal-close i {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 18px;
+}
+
+#customer-booking-confirm-modal .modal-close:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: rotate(90deg);
+}
+
+@media (max-width: 480px) {
+  #customer-booking-confirm-modal .modal-container {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  #customer-booking-confirm-modal .customer-confirm-actions {
+    flex-direction: column;
+  }
+
+  #customer-booking-confirm-modal .customer-confirm-actions .btn-action {
+    width: 100%;
+    min-width: 0;
+  }
+}

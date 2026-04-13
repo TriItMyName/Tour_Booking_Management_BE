@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../src/assets/css/register.css">
+    <script src="https://kit.fontawesome.com/172fe3c567.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Icon home ở góc trái trên -->
+    <a href="index.html" class="home-icon" title="Quay về trang chủ">
+        <img src="../src/assets/image/icon_logo.png" alt="Home">
+    </a>
+    
+    <div class="wapper">
+        <form id="registerForm" action="">
+            <h1>Register</h1>
+            
+            <!-- Username -->
+            <div class="input-box">
+                <i class="fa-solid fa-user icon-left"></i>
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            
+            <!-- Email -->
+            <div class="input-box">
+                <i class="fa-solid fa-envelope icon-left"></i>
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            
+            <!-- Phone -->
+            <div class="input-box">
+                <i class="fa-solid fa-phone icon-left"></i>
+                <input type="tel" id="phone" placeholder="Phone Number" required>
+            </div>
+            
+            <!-- Password -->
+            <div class="input-box">
+                <i class="fa-solid fa-lock icon-left"></i>
+                <input type="password" id="password" placeholder="Password" required>
+                <i class="fa-regular fa-eye icon-right" id="togglePassword" aria-label="Show password" tabindex="0"></i>
+            </div>
+            
+            <!-- Confirm Password -->
+            <div class="input-box">
+                <i class="fa-solid fa-lock icon-left"></i>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                <i class="fa-regular fa-eye icon-right" id="toggleConfirmPassword" aria-label="Show password" tabindex="0"></i>
+            </div>
+            
+            <!-- Terms and Conditions -->
+            <div class="terms-agreement">
+                <label><input type="checkbox" required> Tôi đồng ý với <a href="#">Điều khoản & Điều kiện</a></label>
+            </div>
+            
+            <button type="submit" class="btn-register">Register</button>
+            
+            <div class="login-link">
+                <p>Bạn đã có tài khoản? <a href="login.html">Login</a></p>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        (function () {
+            const pwdInput = document.getElementById('password');
+            const togglePwd = document.getElementById('togglePassword');
+            const confirmPwdInput = document.getElementById('confirmPassword');
+            const toggleConfirmPwd = document.getElementById('toggleConfirmPassword');
+
+            function setupToggle(input, toggle) {
+                function setVisible(visible) {
+                    input.setAttribute('type', visible ? 'text' : 'password');
+                    toggle.classList.toggle('fa-eye', !visible);
+                    toggle.classList.toggle('fa-eye-slash', visible);
+                    toggle.setAttribute('aria-label', visible ? 'Hide password' : 'Show password');
+                }
+
+                toggle.addEventListener('click', () => {
+                    const isVisible = input.getAttribute('type') === 'text';
+                    setVisible(!isVisible);
+                });
+
+                toggle.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const isVisible = input.getAttribute('type') === 'text';
+                        setVisible(!isVisible);
+                    }
+                });
+            }
+
+            setupToggle(pwdInput, togglePwd);
+            setupToggle(confirmPwdInput, toggleConfirmPwd);
+        })();
+    </script>
+
+    <script src="../src/js/register.js"></script>
+</body>
+
+</html>

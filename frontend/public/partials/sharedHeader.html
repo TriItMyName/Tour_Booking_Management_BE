@@ -1,0 +1,35 @@
+<!-- Shared header + search overlay (reused from menu.html) -->
+<header>
+  <a href="menu.html" class="logo" aria-label="Trang chủ">
+    <img class="logo-img" src="../src/assets/image/icon_logo.png" alt="Warring" />
+  </a>
+
+  <nav class="navbar">
+    <a href="menu.html">Trang chủ</a>
+    <a href="#Feedback">Feedback</a>
+    <a href="#Lienhe">Liên hệ</a>
+
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Danh mục</a>
+      <div class="dropdown-content">
+        <div id="regionDropdown" class="region-dropdown" aria-label="Chọn danh mục">
+          <a href="#" data-region-id="" class="active">Đang tải...</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="icons">
+    <i class="fas fa-bars" id="menu-bars"></i>
+    <i class="fas fa-search" id="search-icon"></i>
+    <a href="customer.html" class="fa-solid fa-user" title="Xem tours"></a>
+    <a href="login.html" class="fas fa-door-open" title="Đăng nhập"></a>
+    <span id="userInfo" style="margin-left:10px;font-weight:bold;"></span>
+  </div>
+</header>
+
+<form action="" id="search-form">
+  <input type="search" placeholder="Tìm kiếm..." name="" id="search-box">
+  <label for="search-box" class="fas fa-search"></label>
+  <i class="fas fa-times" id="close"></i>
+</form>
